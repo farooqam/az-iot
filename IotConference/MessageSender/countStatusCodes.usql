@@ -1,0 +1,40 @@
+﻿REFERENCE ASSEMBLY iotconference.[Newtonsoft.Json];
+REFERENCE ASSEMBLY iotconference.[Avro];
+REFERENCE ASSEMBLY iotconference.[Microsoft.Analytics.Samples.Formats];
+
+USING Microsoft.Analytics.Samples.Formats.ApacheAvro;
+USING Microsoft.Analytics.Samples.Formats.Json;
+USING System.Text;
+
+@extract =
+    EXTRACT MessageCreatedUtcTime string,
+			StatusCode string,
+			EventProcessedUtcTime string,
+			PartitionId string,
+			EventEnqueuedUtcTime string,
+			date DateTime
+    FROM @"adl://iotconference.azuredatalakestore.net/iotconference/events/{date:yyyy}/{date:MM}/{date:dd}/{*}"
+    USING new AvroExtractor(@"
+        {
+            ""type"":""record"",
+            ""name"":""GenericFromIRecord0"",
+            ""namespace"":""Microsoft.Streaming.Avro"",
+            ""fields"":[
+                {""name"":""MessageCreatedUtcTime"",""type"":[""null"",""string""]},
+                {""name"":""StatusCode"",""type"":[""null"",""string""]},
+                {""name"":""EventProcessedUtcTime"",""type"":[""null"",""string""]},
+				{""name"":""PartitionId"",""type"":[""null"",""string""]},
+				{""name"":""EventEnqueuedUtcTime"",""type"":[""null"",""string""]}
+            ]
+        }
+    ");
+
+@report = 
+	SELECT StatusCode,
+		   COUNT(StatusCode) AS Cnt
+	 FROM @extract
+	 GROUP BY StatusCode;
+	 
+OUTPUT @report
+TO "/iotconference/logs/csv/statusCodeCounts.csv"
+USING Outputters.Csv();

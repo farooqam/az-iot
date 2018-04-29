@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "IotConferenceRg", "IotConferenceRg\IotConferenceRg.deployproj", "{11ABFD75-4288-4A33-847E-00530DE62C9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageSender", "MessageSender\MessageSender.csproj", "{4E4C4B37-3DBF-47FB-957D-740DF12D2FF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11ABFD75-4288-4A33-847E-00530DE62C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11ABFD75-4288-4A33-847E-00530DE62C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11ABFD75-4288-4A33-847E-00530DE62C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11ABFD75-4288-4A33-847E-00530DE62C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4C4B37-3DBF-47FB-957D-740DF12D2FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4C4B37-3DBF-47FB-957D-740DF12D2FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4C4B37-3DBF-47FB-957D-740DF12D2FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4C4B37-3DBF-47FB-957D-740DF12D2FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6299D0B9-EDDC-4CAD-A919-6A6B5095EFEC}
+	EndGlobalSection
+EndGlobal
